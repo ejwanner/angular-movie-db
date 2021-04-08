@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { PostsService } from '../../post.service';
+import { PostsService } from '../post.service';
 
 @Component({
   selector: 'movie-db-angular-post-create',
