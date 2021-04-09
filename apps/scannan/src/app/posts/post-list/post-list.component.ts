@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Post } from '../../post.model';
-import { PostsService } from '../../post.service'
+import { Post } from '../post.model';
+import { PostsService } from '../post.service'
 
 @Component({
   selector: 'movie-db-angular-post-list',
