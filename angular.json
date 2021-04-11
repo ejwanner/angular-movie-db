@@ -56,7 +56,11 @@
                 "output": "/assets/"
               }
             ],
-            "styles": ["./node_modules/ng-zorro-antd/ng-zorro-antd.min.css", "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/scannan/src/styles.scss"],
+            "styles": [
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/scannan/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -92,7 +96,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "scannan:build"
+            "browserTarget": "scannan:build",
+            "proxyConfig": "apps/scannan/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -147,6 +152,56 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/scannan-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "movie-db-api": {
+      "root": "apps/movie-db-api",
+      "sourceRoot": "apps/movie-db-api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/movie-db-api",
+            "main": "apps/movie-db-api/src/main.ts",
+            "tsConfig": "apps/movie-db-api/tsconfig.app.json",
+            "assets": ["apps/movie-db-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/movie-db-api/src/environments/environment.ts",
+                  "with": "apps/movie-db-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "movie-db-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/movie-db-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/movie-db-api"],
+          "options": {
+            "jestConfig": "apps/movie-db-api/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
