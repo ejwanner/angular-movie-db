@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Res, Header } from '@nestjs/common';
+import { Controller, Get, Post, Res, Req, Header, HttpCode, Body, Delete, Param } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
@@ -6,20 +6,23 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  // @Get('posts')
-  // @Header('Access-Control-Allow-Origin', '*')
-  // @Header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept')
-  // @Header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
-  // getData(@Res() res: any) {
-  //   const posts = this.appService.getData();
-  //   res.json({ message: 'here are the posts', posts: posts})
-  // }
+  @Get('posts')
+  async getData(@Res() res: any) {
+    const posts = await this.appService.getData();
+    res.json({ message: 'here are the posts', posts: posts});
+  }
+
   @Post('posts')
-  @Header('Access-Control-Allow-Origin', '*')
-  @Header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept')
-  @Header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
-  getData(@Res() res: any) {
-    const posts = this.appService.getData();
-    res.json({ message: 'here are the posts', posts: posts})
+  @HttpCode(200)
+  postData(@Body() body: any, @Res() res: any) {
+    const post = this.appService.addPost(body);
+    console.log(post); // TODO hier auch weiter machen
+
+    res.json({ message: 'Success', post: post});
+  }
+
+  @Delete('posts/:id')
+  async deleteData(@Param('id') postId: string) {
+    return await this.appService.deleteOnePost(postId);
   }
 }
