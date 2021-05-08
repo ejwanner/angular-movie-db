@@ -8,8 +8,8 @@ import { PostSchema } from './models/post.model';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ envFilePath: '../../../movie-db-api'}),
-    MongooseModule.forRoot(''),
+    // ConfigModule.forRoot({ envFilePath: '../../../movie-db-api'}),
+    MongooseModule.forRoot('mongodb+srv://movie-admin:GKwUDvH6fknzyazL@cluster0.fyszm.mongodb.net/moviedb?retryWrites=true&w=majority'),
     MongooseModule.forFeature([
       { name: 'Post', schema: PostSchema }
     ])
