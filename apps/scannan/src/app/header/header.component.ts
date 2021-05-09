@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'movie-db-angular-header',
+  selector: 'scannan-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

@@ -21,9 +21,9 @@ export class AppService {
       title: postData.title,
       content: postData.content
     });
-    const posts = await post.save().then(result => {
-      return result._id; // TODO hier weiter machen mit der _id und Mongo Credentials wieder reinkopieren
-    })
+    const posts = await post.save().then(createdPost => {
+      return createdPost._id; // TODO hier weiter machen mit der _id und Mongo Credentials wieder reinkopieren
+    });
     return posts;
   }
 

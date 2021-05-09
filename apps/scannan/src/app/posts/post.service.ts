@@ -34,14 +34,24 @@ export class PostsService {
     return this.postsUpdated.asObservable();
   }
 
+  getPost(id: string) {
+    return {...this.posts.find(p => p.id === id)}
+  }
+
   addPost(title: string, content: string) {
     const post: Post = { id: null, title: title, content: content};
-    this.http.post<{message: string}>('http://localhost:3333/api/posts', post)
+    this.http.post<{message: string, postId: string}>('http://localhost:3333/api/posts', post)
       .subscribe(responseData => {
-        const postId = responseData
-        this.posts.push(post);
+        const id = responseData.postId;
+        post.id = id; //update the id of the Post
+        this.posts.push(post); // update the post with the new, right, id
         this.postsUpdated.next([...this.posts]);
       });
+  }
+
+  updatePost(id: string, title: string, content: string) {
+    const post: Post = { id: id, title: title, content: content};
+
   }
 
   deletePost(postId: string) {

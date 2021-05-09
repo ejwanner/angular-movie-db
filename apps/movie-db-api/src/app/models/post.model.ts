@@ -8,7 +8,7 @@ export const PostSchema = new mongoose.Schema({
 });
 
 export interface PostModel extends Document{
-  id: string;
+  _id: string;
   title: string;
   content: string;
 }

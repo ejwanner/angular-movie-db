@@ -5,7 +5,7 @@ import { Post } from '../post.model';
 import { PostsService } from '../post.service'
 
 @Component({
-  selector: 'movie-db-angular-post-list',
+  selector: 'scannan-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })

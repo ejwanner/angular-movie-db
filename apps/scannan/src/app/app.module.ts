@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import de from '@angular/common/locales/de';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from "./app-routing.module";
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -34,6 +35,7 @@ registerLocaleData(de);
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     NzSwitchModule,
     NzButtonModule,

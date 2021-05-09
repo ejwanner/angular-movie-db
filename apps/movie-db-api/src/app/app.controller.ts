@@ -16,7 +16,7 @@ export class AppController {
   @HttpCode(200)
   postData(@Body() body: any, @Res() res: any) {
     const post = this.appService.addPost(body);
-    console.log(post); // TODO hier auch weiter machen
+    console.log(post);
 
     res.json({ message: 'Success', post: post});
   }

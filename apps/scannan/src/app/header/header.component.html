@@ -1,1 +1,9 @@
-<mat-toolbar color="primary">My Movie Database</mat-toolbar>
+<mat-toolbar color="primary">
+  <span><a routerLink="/">My Movie Database</a> </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <a routerLink="/create" routerLinkActive="mat-accent" mat-button>Post created</a>
+    </li>
+  </ul>
+</mat-toolbar>
