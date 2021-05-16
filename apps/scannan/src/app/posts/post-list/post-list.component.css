@@ -7,3 +7,9 @@
   text-align: center;
   background-color: #fff;
 }
+
+.text {
+  background-color: black;
+  margin: 2rem;
+  padding: 4rem;
+}
