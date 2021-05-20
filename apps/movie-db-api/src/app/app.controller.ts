@@ -9,7 +9,7 @@ export class AppController {
   @Get('posts')
   async getData(@Res() res: any) {
     const posts = await this.appService.getData();
-    res.json({ message: 'here are the posts', posts: posts});
+    res.json({ message: 'here are all the posts', posts: posts});
   }
 
   @Post('posts')
@@ -24,7 +24,7 @@ export class AppController {
   @Put('posts/:id')
   async updateData(@Body() body: any, @Param('id') postId: string, @Res() res: any) {
     const updatedPost =  await this.appService.updatePost(body, postId);
-    res.json({ message: 'Update successful!!'});
+    res.json({ message: 'Update was successful!!'});
     console.log(updatedPost);
     return updatedPost;
 
