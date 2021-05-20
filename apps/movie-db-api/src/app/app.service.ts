@@ -22,9 +22,17 @@ export class AppService {
       content: postData.content
     });
     const posts = await post.save().then(createdPost => {
-      return createdPost._id; // TODO hier weiter machen mit der _id und Mongo Credentials wieder reinkopieren
+
     });
-    return posts;
+  }
+
+  async updatePost(postData: any, postId: string) {
+    const post = new this.postModel({
+      _id: postId,
+      title: postData.title,
+      content: postData.content
+    });
+    return await this.postModel.updateOne({_id: postId}, post)
   }
 
   async deleteOnePost(postId: string) {

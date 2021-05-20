@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Res, Req, Header, HttpCode, Body, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Res, Req, Header, HttpCode, Body, Delete, Param, Put } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
@@ -18,7 +18,16 @@ export class AppController {
     const post = this.appService.addPost(body);
     console.log(post);
 
-    res.json({ message: 'Success', post: post});
+    return post;
+  }
+
+  @Put('posts/:id')
+  async updateData(@Body() body: any, @Param('id') postId: string, @Res() res: any) {
+    const updatedPost =  await this.appService.updatePost(body, postId);
+    res.json({ message: 'Update successful!!'});
+    console.log(updatedPost);
+    return updatedPost;
+
   }
 
   @Delete('posts/:id')
