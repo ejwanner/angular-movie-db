@@ -14,6 +14,6 @@
   padding: 4rem;
 }
 
-.divider {
-  background-color: green;
+mat-spinner {
+  margin: auto;
 }

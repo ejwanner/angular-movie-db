@@ -3,6 +3,14 @@ textfield {
   width: 100%;
 }
 
-.divider {
-  background-color: green;
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.imageButton {
+  padding-bottom: 1rem;
 }

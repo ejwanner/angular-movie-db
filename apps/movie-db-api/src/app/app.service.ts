@@ -21,9 +21,7 @@ export class AppService {
       title: postData.title,
       content: postData.content
     });
-    const posts = await post.save().then(createdPost => {
-
-    });
+    return await post.save();
   }
 
   async updatePost(postData: any, postId: string) {
@@ -33,6 +31,11 @@ export class AppService {
       content: postData.content
     });
     return await this.postModel.updateOne({_id: postId}, post)
+  }
+
+  async getPostById(postId: string) {
+    const rightPost = await this.postModel.findById(postId);
+    return rightPost;
   }
 
   async deleteOnePost(postId: string) {

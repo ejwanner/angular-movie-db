@@ -14,10 +14,8 @@ export class AppController {
 
   @Post('posts')
   @HttpCode(200)
-  postData(@Body() body: any, @Res() res: any) {
-    const post = this.appService.addPost(body);
-    console.log(post);
-
+  async postData(@Body() body: any, @Res() res: any) {
+    const post = await this.appService.addPost(body);
     return post;
   }
 
@@ -27,7 +25,16 @@ export class AppController {
     res.json({ message: 'Update was successful!!'});
     console.log(updatedPost);
     return updatedPost;
+  }
 
+  @Get('posts/:id')
+  async getPost(@Param('id') postId: string) {
+    const rightPost = await this.appService.getPostById(postId);
+    if(rightPost) {
+      return rightPost;
+    } else {
+      throw new Error('Post not found!');
+    }
   }
 
   @Delete('posts/:id')
