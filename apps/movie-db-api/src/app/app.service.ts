@@ -16,21 +16,29 @@ export class AppService {
     return posts;
   }
 
-  async addPost(postData: any) {
+  async addPost(postData: any, req: any) {
+    const url = req.protocol + '://' + req.get("host");
     const post = new this.postModel({
       title: postData.title,
-      content: postData.content
+      content: postData.content,
+      imagePath: url + "/src/app/images/" + req.file.filename
     });
     return await post.save();
   }
 
-  async updatePost(postData: any, postId: string) {
+  async updatePost(postData: any, postId: string, req: any) {
+    let imagePath = req.body.imagePath;
+    if(req.file) {
+      const url = req.protocol + '://' + req.get("host");
+      imagePath: url + "/src/app/images/" + req.file.filename
+    }
     const post = new this.postModel({
       _id: postId,
       title: postData.title,
-      content: postData.content
+      content: postData.content,
+      imagePath: imagePath
     });
-    return await this.postModel.updateOne({_id: postId}, post)
+    return this.postModel.updateOne({_id: postId}, post)
   }
 
   async getPostById(postId: string) {
