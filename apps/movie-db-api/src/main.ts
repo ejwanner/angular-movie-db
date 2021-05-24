@@ -18,12 +18,10 @@ async function bootstrap() {
   app.use(json());
   app.use('/images', express.static(path.join('src/app/images')))
   app.enableCors({
-    origin: [
-      'http://localhost:3333',
-      'http://localhost:4200'
-    ],
+    origin: "*",
     methods: 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
-    preflightContinue: false
+    preflightContinue: false,
+    credentials: true,
   })
   const port = process.env.PORT || 3333;
   await app.listen(port, () => {

@@ -10,10 +10,19 @@ export class AppService {
 
   constructor(@InjectModel('Post') private readonly postModel: Model<PostModel>) {}
 
-  async getData(){
-    const posts = await this.postModel.find();
-    console.log(posts);
-    return posts;
+  async getData(pageSize: number, currentPage: number){
+    pageSize = +pageSize;
+    currentPage = +currentPage;
+    if (pageSize && currentPage) {
+      return await this.postModel.find()
+        .skip(pageSize * (currentPage - 1))
+        .limit(pageSize)
+        .exec();
+    }
+  }
+
+  async countData() {
+    return await this.postModel.count().exec();
   }
 
   async addPost(postData: any, req: any) {

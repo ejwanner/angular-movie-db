@@ -10,7 +10,7 @@ import {
   Delete,
   Param,
   Put,
-  Req
+  Req, Query
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 
@@ -23,9 +23,14 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('posts')
-  async getData(@Res() res: any) {
-    const posts = await this.appService.getData();
-    res.json({ message: 'here are all the posts', posts: posts});
+  async getData(@Res() res: any, @Query('pagesize') pagesize: number, @Query('page') page: number) {
+    const fetchedPosts = await this.appService.getData(pagesize, page);
+    const count = await this.appService.countData();
+    console.log(count);
+    return res.json({
+      posts: fetchedPosts,
+      maxPosts: count
+    });
   }
 
   @Post('posts')
