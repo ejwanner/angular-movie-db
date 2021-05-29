@@ -14,7 +14,7 @@ import { UserModule } from './user/user.module';
     /*ServeStaticModule.forRoot({
       rootPath: join('images'),
     }),*/
-    MongooseModule.forRoot('mongodb+srv://movie-admin:GKwUDvH6fknzyazL@cluster0.fyszm.mongodb.net/moviedb?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://movie-admin:GKwUDvH6fknzyazL@cluster0.fyszm.mongodb.net/moviedb'),
     MongooseModule.forFeature([
       { name: 'Post', schema: PostSchema },
       { name: 'User', schema: UserSchema }

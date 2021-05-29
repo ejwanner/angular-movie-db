@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { User } from '../interfaces/user.interface';
 import { AuthService } from '../auth/auth.service';
 import { SignupUserDto } from './dto/signup-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
 
 @Injectable()
 export class UserService{
@@ -20,6 +21,26 @@ export class UserService{
       .catch(() => {
         throw new HttpException('Email already in use!', HttpStatus.CONFLICT);
       });
+  }
+
+  async login(loginUser: LoginUserDto) {
+    this.userModel.findOne({ email: loginUser.email })
+      .then(user => {
+        if(!user) {
+          throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+        }
+        return this.authService.validatePasswords(loginUser.password, user.password);
+      })
+      .then(result => {
+        if(!result) {
+          throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+        }
+        //TODO hier weiter mit JWT Implementierung
+      })
+      .catch(() => {
+        throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+      })
+
   }
 
 }
