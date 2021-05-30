@@ -27,18 +27,18 @@ export class UserService{
     this.userModel.findOne({ email: loginUser.email })
       .then(user => {
         if(!user) {
-          throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+          throw new HttpException('Not such an user found!', HttpStatus.FORBIDDEN);
         }
         return this.authService.validatePasswords(loginUser.password, user.password);
       })
       .then(result => {
         if(!result) {
-          throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+          throw new HttpException('The password is incorrect!', HttpStatus.FORBIDDEN);
         }
         //TODO hier weiter mit JWT Implementierung
       })
       .catch(() => {
-        throw new HttpException('Auth failed!', HttpStatus.FORBIDDEN);
+        throw new HttpException('Authorization failed!', HttpStatus.FORBIDDEN);
       })
 
   }
