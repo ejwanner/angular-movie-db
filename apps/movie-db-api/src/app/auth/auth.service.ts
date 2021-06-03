@@ -15,7 +15,7 @@ export class AuthService {
     return await bcrypt.hash(password, 12);
   }
 
-  async validatePasswords(password: string, storedPasswordHash: string) {
+  async validatePassword(password: string, storedPasswordHash: string) {
     return await bcrypt.compare(password, storedPasswordHash);
   }
 }

@@ -19,7 +19,7 @@ export class UserService{
     const user = new this.userModel(signUpUser);
     user.save()
       .catch(() => {
-        throw new HttpException('Email already in use!', HttpStatus.CONFLICT);
+        throw new HttpException('Email is already in use!', HttpStatus.CONFLICT);
       });
   }
 
@@ -29,7 +29,7 @@ export class UserService{
         if(!user) {
           throw new HttpException('Not such an user found!', HttpStatus.FORBIDDEN);
         }
-        return this.authService.validatePasswords(loginUser.password, user.password);
+        return this.authService.validatePassword(loginUser.password, user.password);
       })
       .then(result => {
         if(!result) {
