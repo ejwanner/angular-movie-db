@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import de from '@angular/common/locales/de';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from "./app-routing.module";
 
 import { MatInputModule } from '@angular/material/input';
@@ -31,6 +31,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { de_DE } from 'ng-zorro-antd/i18n';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 registerLocaleData(de);
 
@@ -57,7 +58,7 @@ registerLocaleData(de);
     MatFormFieldModule,
     MatPaginatorModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: de_DE }],
+  providers: [{ provide: NZ_I18N, useValue: de_DE }, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -26,7 +26,6 @@ export class AppController {
   async getData(@Res() res: any, @Query('pagesize') pagesize: number, @Query('page') page: number) {
     const fetchedPosts = await this.appService.getData(pagesize, page);
     const count = await this.appService.countData();
-    console.log(count);
     return res.json({
       posts: fetchedPosts,
       maxPosts: count

@@ -8,14 +8,15 @@ export class AuthService {
   constructor(private jwtService: JwtService) {}
 
   async generateJwt(user: User) {
-    return this.jwtService.sign( {user});
+    return this.jwtService.sign( {'email': user.email, '_id': user._id});
   }
 
   async hashPassword(password: string) {
     return await bcrypt.hash(password, 12);
   }
 
-  async validatePassword(password: string, storedPasswordHash: string) {
+  async validatePasswords(password: string, storedPasswordHash: string) {
     return await bcrypt.compare(password, storedPasswordHash);
   }
+
 }

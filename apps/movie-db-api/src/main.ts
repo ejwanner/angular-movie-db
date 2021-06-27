@@ -19,9 +19,10 @@ async function bootstrap() {
   app.use('/images', express.static(path.join('src/app/images')))
   app.enableCors({
     origin: "*",
-    methods: 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+    methods: 'GET, POST, PUT, PATCH, POST, DELETE',
     preflightContinue: false,
     credentials: true,
+    allowedHeaders: 'Content-Type, Accept, Authorization'
   })
   const port = process.env.PORT || 3333;
   await app.listen(port, () => {

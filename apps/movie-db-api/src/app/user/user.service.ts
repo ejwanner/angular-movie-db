@@ -15,32 +15,43 @@ export class UserService{
   ) {}
 
   async create(signUpUser: SignupUserDto) {
-    signUpUser.password = await this.authService.hashPassword(signUpUser.password);
-    const user = new this.userModel(signUpUser);
-    user.save()
-      .catch(() => {
-        throw new HttpException('Email is already in use!', HttpStatus.CONFLICT);
-      });
+    return new Promise(async (resolve, reject) => {
+      signUpUser.password = await this.authService.hashPassword(signUpUser.password);
+      const user = new this.userModel(signUpUser);
+      console.log(user);
+      if(user) {
+        user.save();
+        resolve({ userInfo: user });
+      } else {
+        let err = new HttpException('Email is already in use!', HttpStatus.CONFLICT);
+        reject(err);
+      }
+    })
   }
 
   async login(loginUser: LoginUserDto) {
-    this.userModel.findOne({ email: loginUser.email })
-      .then(user => {
-        if(!user) {
-          throw new HttpException('Not such an user found!', HttpStatus.FORBIDDEN);
-        }
-        return this.authService.validatePassword(loginUser.password, user.password);
-      })
-      .then(result => {
-        if(!result) {
-          throw new HttpException('The password is incorrect!', HttpStatus.FORBIDDEN);
-        }
-        //TODO hier weiter mit JWT Implementierung
-      })
-      .catch(() => {
-        throw new HttpException('Authorization failed!', HttpStatus.FORBIDDEN);
-      })
-
+    return new Promise(async (resolve, reject) => {
+      const user = await this.findUserByEmail(loginUser.email);
+      if(!user) {
+        let err = new HttpException('Not such an user found!', HttpStatus.FORBIDDEN);
+        reject(err);
+      }
+      const result = await this.authService.validatePasswords(loginUser.password, user.password);
+      if(!result) {
+        let err = new HttpException('The password is incorrect!', HttpStatus.FORBIDDEN);
+        reject(err);
+      }
+      const jwt = await this.authService.generateJwt(user);
+      if(jwt) {
+        resolve({ accessToken: jwt});
+      } else {
+        let err = new HttpException('Authorization failed!', HttpStatus.FORBIDDEN);
+        reject(err);
+      }
+    })
   }
 
+  async findUserByEmail(email: string) {
+    return this.userModel.findOne({ email: email });
+  }
 }
