@@ -18,8 +18,8 @@ export class UserService{
     return new Promise(async (resolve, reject) => {
       signUpUser.password = await this.authService.hashPassword(signUpUser.password);
       const user = new this.userModel(signUpUser);
-      console.log(user);
       if(user) {
+        console.log(user);
         user.save();
         resolve({ userInfo: user });
       } else {
