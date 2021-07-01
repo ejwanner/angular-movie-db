@@ -8,6 +8,7 @@ import { NestFactory } from '@nestjs/core';
 import { urlencoded, json } from "body-parser";
 import * as express from 'express';
 import * as path from 'path';
+import * as helmet from 'helmet';
 
 import { AppModule } from './app/app.module';
 
@@ -15,8 +16,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.use(urlencoded({ extended: true }));
+  app.use(helmet());
   app.use(json());
-  app.use('/images', express.static(path.join('src/app/images')))
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+  })
+  //app.use('/images', express.static(path.join('src/app/images')))
   app.enableCors({
     origin: "*",
     methods: 'GET, POST, PUT, PATCH, POST, DELETE',

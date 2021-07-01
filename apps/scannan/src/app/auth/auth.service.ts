@@ -37,7 +37,7 @@ export class AuthService {
     const authData: AuthData = {email: email, password: password};
     this.http.post<{accessToken: string, expiresIn: number}>('http://localhost:3333/login', authData).subscribe(response => {
       const accessToken = response.accessToken;
-      this.accessToken = accessToken;
+      this.accessToken = accessToken; // TODO refoctor expiration data ... it doesn't work!
       if (accessToken) {
         const expiresInDuration = response.expiresIn;
         console.log(expiresInDuration + 'test');

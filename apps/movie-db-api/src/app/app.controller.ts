@@ -33,9 +33,9 @@ export class AppController {
   }
 
   @Post('posts')
-  @UseInterceptors(FileInterceptor("file", { storage: storage }))
+  //@UseInterceptors(FileInterceptor("file", { storage: storage }))
   @HttpCode(200)
-  async postData(@UploadedFile() file, @Body() body: any, @Res() res: any, @Req() req: any) {
+  async postData(@Body() body: any, @Res() res: any, @Req() req: any) {
     const post = await this.appService.addPost(body, req);
     return res.json({
       message: 'Post added successful!',
@@ -43,7 +43,8 @@ export class AppController {
         id: post._id,
         title: post.title,
         content: post.content,
-        imagePath: post.imagePath
+        //imagePath: post.imagePath,
+        creator: post.creator
       }
     });
   }

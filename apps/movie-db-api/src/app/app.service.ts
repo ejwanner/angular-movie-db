@@ -26,26 +26,29 @@ export class AppService {
   }
 
   async addPost(postData: any, req: any) {
-    const url = req.protocol + '://' + req.get("host");
+    const userId = req.user.payload.user._id;
+    //const url = req.protocol + '://' + req.get("host");
     const post = new this.postModel({
       title: postData.title,
       content: postData.content,
-      imagePath: url + "/src/app/images/" + req.file.filename
+      //imagePath: url + "/src/app/images/" + req.file.filename,
+      //creator: userId
     });
     return await post.save();
   }
 
   async updatePost(postData: any, postId: string, req: any) {
-    let imagePath = req.body.imagePath;
-    if(req.file) {
-      const url = req.protocol + '://' + req.get("host");
-      imagePath: url + "/src/app/images/" + req.file.filename
-    }
+    //let imagePath = req.body.imagePath;
+    // if(req.file) {
+    //   const url = req.protocol + '://' + req.get("host");
+    //   imagePath: url + "/src/app/images/" + req.file.filename
+    // }
     const post = new this.postModel({
       _id: postId,
       title: postData.title,
       content: postData.content,
-      imagePath: imagePath
+     // imagePath: imagePath,
+      creator: req.user.payload.user._id,
     });
     return this.postModel.updateOne({_id: postId}, post)
   }
