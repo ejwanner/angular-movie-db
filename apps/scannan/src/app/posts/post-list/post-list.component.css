@@ -5,11 +5,11 @@
 
 .info-text {
   text-align: center;
-  background-color: #fff;
+  background-color: white;
 }
 
 .text {
-  background-color: black;
+  background-color: grey;
   margin: 2rem;
   padding: 4rem;
 }
