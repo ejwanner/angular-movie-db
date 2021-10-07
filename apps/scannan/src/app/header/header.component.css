@@ -1,18 +1,18 @@
 mat-toolbar {
-  background-color: aquamarine;
+  background-color: blue;
   text-align: center;
   margin-top: auto;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: green;
 }
 
 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: flex;
 }
 

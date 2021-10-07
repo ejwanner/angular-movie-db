@@ -23,7 +23,7 @@ async function bootstrap() {
   })
   //app.use('/images', express.static(path.join('src/app/images')))
   app.enableCors({
-    origin: "*",
+    origin: "*", // Allow-Origin-Headers
     methods: 'GET, POST, PUT, PATCH, POST, DELETE',
     preflightContinue: false,
     credentials: true,
