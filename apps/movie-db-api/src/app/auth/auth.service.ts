@@ -7,6 +7,7 @@ import * as bcrypt from 'bcryptjs';
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
+  // generate JWT
   async generateJwt(user: User) {
     return this.jwtService.sign( {'email': user.email, '_id': user._id});
   }
