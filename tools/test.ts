@@ -3,6 +3,5 @@ vjkk
 ghbvhjnsd
 upoikodfdf
 gjbnn
-eredfs
-ffdf
+eredf
 df
