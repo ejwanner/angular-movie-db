@@ -5,7 +5,6 @@ upoikodfdf
 gjbnnnddfdf
 rhhtdf
 tzztzfdsfdf
-ftujvfd
 eredfs
 ffdf
 df
