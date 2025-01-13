@@ -2,8 +2,7 @@ thhgjb
 vjkk
 ghbvhjnsd
 upoikodfdf
-gjbnnnddfdf
-rhhtdf
+gjbnnnddfd
 
 eredfs
 ffdf
