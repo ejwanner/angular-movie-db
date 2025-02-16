@@ -5,4 +5,4 @@ klll
 opjkk
 hhh gbnknnl
 mööm
-tut nölhab nnn
+tut ll nnn
