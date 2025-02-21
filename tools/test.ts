@@ -1,7 +1,5 @@
 klkkk
 vjkkdf
-ghbvhjnsdddf
-nölld
 huhbf
 hhhnnnddf
 nmmmm
