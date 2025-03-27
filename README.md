@@ -15,7 +15,7 @@ df
 [10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
 
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
-
+dsf
 ## Adding capabilities to your workspace
 
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
