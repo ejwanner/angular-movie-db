@@ -19,7 +19,7 @@ dsf
 ## Adding capabilities to your workspace
 
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
+fd
 These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
 Below are our core plugins:fffdf
