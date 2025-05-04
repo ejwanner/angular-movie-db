@@ -17,7 +17,7 @@ dfdf
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
 dsfdfdf
 ## Adding capabilities to your workspace
-
+fdf
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 fddfdsffd
 These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.dsfds
