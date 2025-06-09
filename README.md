@@ -12,7 +12,7 @@ gghjj
 dfdfvbjn
 [Nx Documentation](https://vjjnx.dev/angular)df
 
-[10-minute video showing all Nx bbbbfeatures](https://nx.dev/angular/getting-started/what-is-nx)
+[10-minute video uhjjj all Nx bbbbfeatures](https://nx.dev/angular/getting-started/what-is-nx)
 vbbb
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
 dsfdfdf
