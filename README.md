@@ -28,7 +28,7 @@ Below are our core plugins:fffdf
   - `ng add @nrwl/angular`
 - [React](https://reactjs.org)
   - `ng add @nrwl/react`
-- Web (no framework frontends)
+- Web (no framework frontends)hjkk
   - `ng add @nrwl/web`
 - [Nest](https://nestjs.com)
   - `ng add @nrwl/nest`
