@@ -9,7 +9,7 @@ gghjj
 🔎 **Nx is a set of ghjj Dev Tools for Monorepos.**
 
 ## Quick Start & nnnn
-bjkkk
+jkkk
 [Nx Documentation](https://vjjnx.dev/angular)df
 
 [10-minute video uhjjj all Nx bbbbfeatures](https://nx.dev/angular/getting-started/what-is-nx)
