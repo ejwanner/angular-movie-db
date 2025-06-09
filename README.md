@@ -8,7 +8,7 @@ jok
 gghjj
 🔎 **Nx is a set of ghjj Dev Tools for Monorepos.**
 
-## Quick Start & nnnn
+## Quick Start & jkk
 jkkk
 [Nx Documentation](https://vjjnx.dev/angular)df
 
