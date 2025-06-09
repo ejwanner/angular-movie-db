@@ -10,7 +10,7 @@ This project was generated using [Nx](https://nx.dev).
 
 ## Quick Start & Documentation
 dfdf
-[Nx Documentation](https://nx.dev/angular)df
+[Nx Documentation](https://vjjnx.dev/angular)df
 
 [10-minute video showing all Nx bbbbfeatures](https://nx.dev/angular/getting-started/what-is-nx)
 vbbb
