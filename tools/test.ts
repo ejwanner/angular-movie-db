@@ -3,11 +3,3 @@ vjkkdfdf
 huhbfdfd
 dfds
 jkkknnsdffd
-hjnnhjkk
-hknn
-cchhdfsd
-klll
-ghvhv
-fgfgfd
-dsfdf
-dsf
