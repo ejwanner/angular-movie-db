@@ -22,7 +22,7 @@ Nx supports many plugins which add capabilities for developing different types o
 fddfdsffd
 These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.dsfds
 
-Below are our core plugins:fffdf
+Below are our core plugins:fffdfas
 
 - [Angular](https://angular.io)
   - `ng add @nrwl/angular`
