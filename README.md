@@ -20,7 +20,7 @@ dsfdfdf
 fdf
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.asdsaaalll
 fddfdsffdsd
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.dsfdsas
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.dsfdsasaasa
 
 Below are our core plugins:fffdfas
 
