@@ -18,7 +18,7 @@ vbbb
 dsfdfdf
 ## Adding vb to your workspacesds
 fdf
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.asdsa
 fddfdsffdsd
 These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.dsfdsas
 
