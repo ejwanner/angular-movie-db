@@ -16,7 +16,7 @@ jkkk
 vbbb
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
 dsfdfdf
-## Adding vb to your workspace
+## Adding vb to your workspacesds
 fdf
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 fddfdsffd
